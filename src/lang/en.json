@@ -1,0 +1,92 @@
+{
+  "universel.erreur.annee_min": "The year must be greater than or equal to 1900.",
+  "universel.erreur.prix_min": "The price must be at least $100.",
+  "universel.erreur.kilometrage_negatif": "The mileage cannot be negative.",
+  "universel.erreur.champ_obligatoire": "This field is required.",
+  "inventaire.universel.erreur.chargement": "An error occurred while loading the motorcycles.",
+
+  "ajouterMoto.titre": "Add a Motorcycle",
+
+  "ajouterMoto.label.numero_concessionnaire": "Dealer Number",
+  "ajouterMoto.label.marque": "Brand",
+  "ajouterMoto.label.modele": "Model",
+  "ajouterMoto.label.annee": "Year",
+  "ajouterMoto.label.date_mise_en_vente": "Sale Date",
+  "ajouterMoto.label.disponible": "Available",
+  "ajouterMoto.label.prix": "Price ($)",
+  "ajouterMoto.label.categorie": "Categories",
+  "ajouterMoto.label.kilometrage": "Mileage",
+  "ajouterMoto.label.photo": "Photo (URL)",
+
+  "ajouterMoto.bouton.submit": "Add Motorcycle",
+  "ajouterMoto.bouton.ajouter_categorie": "Add Another Category",
+
+  "ajouterMoto.placeholder.categories": "e.g.: sport, naked, custom",
+  "ajouterMoto.placeholder.photo": "https://image.jpg",
+
+  "ajouterMoto.erreur.annee_min": "The year must be greater than or equal to 1900.",
+  "ajouterMoto.erreur.prix_min": "The price must be at least $100.",
+  "ajouterMoto.erreur.kilometrage_negatif": "The mileage cannot be negative.",
+
+  "ajouterMoto.message.success": "Motorcycle added successfully!",
+  "ajouterMoto.message.error": "Unable to add the motorcycle.",
+
+  "inventaire.titre.principal": "Motorcycle Inventory",
+
+  "inventaire.filtre.marque": "Brands",
+  "inventaire.filtre.aucune": "No preference",
+  "inventaire.filtre.kilometrage_max": "Maximum Mileage",
+  "inventaire.filtre.bouton_kilo": "Search by Maximum Mileage",
+
+  "inventaire.marque.honda": "Honda",
+  "inventaire.marque.yamaha": "Yamaha",
+  "inventaire.marque.aprilia": "Aprilia",
+  "inventaire.marque.triumph": "Triumph",
+  "inventaire.marque.kawasaki": "Kawasaki",
+
+  "inventaire.liste.aucun_resultat": "We do not have any motorcycles matching your search criteria.",
+
+  "inventaire.moto.annee": "Year: {annee}",
+  "inventaire.moto.prix": "Price: ${prix}",
+  "inventaire.moto.kilometrage": "Mileage: {kilometrage}",
+
+  "inventaire.bouton.modifier": "Edit",
+  "inventaire.bouton.supprimer": "Delete",
+
+  "inventaire.message.suppression_success": "Motorcycle deleted successfully!",
+
+  "modifierMoto.titre": "Edit Motorcycle",
+
+  "modifierMoto.label.numero_concessionnaire": "Dealer Number",
+  "modifierMoto.label.marque": "Brand",
+  "modifierMoto.label.modele": "Model",
+  "modifierMoto.label.annee": "Year",
+  "modifierMoto.label.date_mise_en_vente": "Sale Date",
+  "modifierMoto.label.disponible": "Available",
+  "modifierMoto.label.prix": "Price ($)",
+  "modifierMoto.label.categorie": "Categories",
+  "modifierMoto.label.kilometrage": "Mileage",
+  "modifierMoto.label.photo": "Photo (URL)",
+
+  "modifierMoto.placeholder.categories": "e.g.: sport, naked, custom",
+  "modifierMoto.placeholder.photo": "https://image.jpg",
+
+  "modifierMoto.bouton.submit": "Update Motorcycle",
+  "modifierMoto.bouton.ajouter_categorie": "Add Another Category",
+  "modifierMoto.bouton.annuler": "Cancel",
+
+  "modifierMoto.message.success": "Motorcycle updated successfully!",
+  "modifierMoto.message.not_found": "Motorcycle not found.",
+  "modifierMoto.message.fetch_error": "Unable to retrieve the motorcycle to edit.",
+  "modifierMoto.message.update_error": "Unable to update the motorcycle.",
+
+  "topbar.titre": "Bibinette's Motorcycles",
+
+  "topbar.bouton.changer.langue": "Switch language {langue}",
+
+  "topbar.lien.inventaire": "Inventory",
+  "topbar.lien.ajouter_moto": "Add Motorcycle",
+
+  "topbar.auth.connexion": "Login",
+  "topbar.auth.deconnexion": "Logout"
+}

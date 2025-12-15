@@ -1,0 +1,92 @@
+{
+  "universel.erreur.annee_min": "L'année doit être supérieure ou égale à 1900.",
+  "universel.erreur.prix_min": "Le prix doit être au moins de 100 $.",
+  "universel.erreur.kilometrage_negatif": "Le kilométrage ne peut pas être négatif.",
+  "universel.erreur.champ_obligatoire": "Ce champ est obligatoire.",
+  "inventaire.universel.erreur.chargement": "Une erreur est survenue lors du chargement des motos.",
+
+  "ajouterMoto.titre": "Ajouter une moto",
+
+  "ajouterMoto.label.numero_concessionnaire": "Numéro concessionnaire",
+  "ajouterMoto.label.marque": "Marque",
+  "ajouterMoto.label.modele": "Modèle",
+  "ajouterMoto.label.annee": "Année",
+  "ajouterMoto.label.date_mise_en_vente": "Date mise en vente",
+  "ajouterMoto.label.disponible": "Disponible",
+  "ajouterMoto.label.prix": "Prix ($)",
+  "ajouterMoto.label.categorie": "Catégories",
+  "ajouterMoto.label.kilometrage": "Kilométrage",
+  "ajouterMoto.label.photo": "Photo (URL)",
+
+  "ajouterMoto.bouton.submit": "Ajouter la moto",
+  "ajouterMoto.bouton.ajouter_categorie": "Ajouter une autre catégorie",
+
+  "ajouterMoto.placeholder.categories": "ex : sport, naked, custom",
+  "ajouterMoto.placeholder.photo": "https://image.jpg",
+
+  "ajouterMoto.erreur.annee_min": "L'année doit être supérieure ou égale à 1900.",
+  "ajouterMoto.erreur.prix_min": "Le prix doit être au moins de 100 $.",
+  "ajouterMoto.erreur.kilometrage_negatif": "Le kilométrage ne peut pas être négatif.",
+
+  "ajouterMoto.message.success": "Moto ajoutée avec succès !",
+  "ajouterMoto.message.error": "Impossible d'ajouter la moto.",
+
+  "inventaire.titre.principal": "Inventaire des motos",
+
+  "inventaire.filtre.marque": "Marques",
+  "inventaire.filtre.aucune": "Aucune préférence",
+  "inventaire.filtre.kilometrage_max": "Kilomètrage maximum",
+  "inventaire.filtre.bouton_kilo": "Chercher par kilomètre maximum",
+
+  "inventaire.marque.honda": "Honda",
+  "inventaire.marque.yamaha": "Yamaha",
+  "inventaire.marque.aprilia": "Aprilia",
+  "inventaire.marque.triumph": "Triumph",
+  "inventaire.marque.kawasaki": "Kawasaki",
+
+  "inventaire.liste.aucun_resultat": "Nous ne possédons pas de motos correspondant à vos critères de recherche.",
+
+  "inventaire.moto.annee": "Année: {annee}",
+  "inventaire.moto.prix": "Prix : {prix}$",
+  "inventaire.moto.kilometrage": "Kilomètrage : {kilometrage}",
+
+  "inventaire.bouton.modifier": "Modifier",
+  "inventaire.bouton.supprimer": "Supprimer",
+
+  "inventaire.message.suppression_success": "Moto supprimée avec succès !",
+
+  "modifierMoto.titre": "Modifier une moto",
+
+  "modifierMoto.label.numero_concessionnaire": "Numéro concessionnaire",
+  "modifierMoto.label.marque": "Marque",
+  "modifierMoto.label.modele": "Modèle",
+  "modifierMoto.label.annee": "Année",
+  "modifierMoto.label.date_mise_en_vente": "Date mise en vente",
+  "modifierMoto.label.disponible": "Disponible",
+  "modifierMoto.label.prix": "Prix ($)",
+  "modifierMoto.label.categorie": "Catégories",
+  "modifierMoto.label.kilometrage": "Kilométrage",
+  "modifierMoto.label.photo": "Photo (URL)",
+
+  "modifierMoto.placeholder.categories": "ex : sport, naked, custom",
+  "modifierMoto.placeholder.photo": "https://image.jpg",
+
+  "modifierMoto.bouton.submit": "Modifier la moto",
+  "modifierMoto.bouton.ajouter_categorie": "Ajouter une autre catégorie",
+  "modifierMoto.bouton.annuler": "Annuler",
+
+  "modifierMoto.message.success": "Moto modifiée avec succès !",
+  "modifierMoto.message.not_found": "Moto introuvable.",
+  "modifierMoto.message.fetch_error": "Impossible de récupérer la moto à modifier.",
+  "modifierMoto.message.update_error": "Impossible de modifier la moto.",
+
+  "topbar.titre": "Les motos de Bibinette",
+
+  "topbar.bouton.changer.langue": "Changer la langue {langue}",
+
+  "topbar.lien.inventaire": "Inventaire",
+  "topbar.lien.ajouter_moto": "Ajouter une moto",
+
+  "topbar.auth.connexion": "Authentification",
+  "topbar.auth.deconnexion": "Déconnexion"
+}
