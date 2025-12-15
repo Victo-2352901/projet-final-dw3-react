@@ -2,14 +2,14 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import type { IMoto } from "../../models/imoto.model";
 import TopBar from "../TopBar";
-import { ConnectionContext } from "../../contexts/ConnectionContext";
+import { ConnexionContext } from "../../contexts/ConnectionContext";
 
 import { FormattedMessage } from "react-intl";
 
 
 function Inventaire() {
 
-  const { estConnecter } = useContext(ConnectionContext)
+    const { estConnecter, jeton } = useContext(ConnexionContext)
 
     const [motos, setMotos] = useState<IMoto[]>([]); 
 
@@ -66,7 +66,14 @@ function Inventaire() {
   }
 
   const SupprimerMoto = (idMoto: string) => {
-    axios.delete(`http://localhost:3000/api/motos/delete/${idMoto}`)
+    console.log(jeton);
+    axios.delete(`http://localhost:3000/api/motos/delete/${idMoto}`,
+      {
+        headers: {
+            Authorization: `Bearer ${jeton}`,
+          },
+      }
+    )
       .then(() => {
         alert("Moto supprimée avec succès !");
       })
@@ -77,6 +84,7 @@ function Inventaire() {
 
   return (
     <>
+
     <TopBar></TopBar>
     <div className="flex flex-col items-center justify-center p-4">
       <h1 className="font-bold text-4xl">     
@@ -184,6 +192,22 @@ function Inventaire() {
           />  
         </div>
         
+        <div className="flex justify-between p-1">
+          <label htmlFor="Suzuki">          
+          <FormattedMessage
+            id="inventaire.marque.suzuki"
+            defaultMessage="Suzuki"
+          />
+        </label>
+          <input type="radio"
+            value={filtreMarque}
+            onChange={() => setFiltreMarque("Suzuki")}
+            name="filtreMarque"
+          />  
+        </div>
+
+
+
 
         <label htmlFor="kiloMax">          
           <FormattedMessage

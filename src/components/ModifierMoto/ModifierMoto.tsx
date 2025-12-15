@@ -1,15 +1,20 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import type { IMoto } from "../../models/imoto.model";
 import TopBar from "../TopBar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import { ConnexionContext } from "../../contexts/ConnectionContext";
 
 
 
 const ModifierMoto = () => {
   
-  const { motoId } = useParams();
+  const {jeton} = useContext(ConnexionContext)
+  
+    const navigate = useNavigate();
+  
+    const { motoId } = useParams();
                     
     const [numeroConcessionnaire, setNumeroConcessionnaire] = useState("");
 
@@ -31,7 +36,7 @@ const ModifierMoto = () => {
 
     const [photo, setPhoto] = useState("");
 
-    const [motoAModifier, setMotoAModifier] = useState<IMoto>({} as IMoto);
+    const [/*motoAModifier*/, setMotoAModifier] = useState<IMoto>({} as IMoto);
 
     const [messageErreur, setMessageErreur] = useState<string>("");
 
@@ -48,11 +53,16 @@ const ModifierMoto = () => {
 
     const erreurChampObligatoire = "Ce champ est obligatoire.";
 
-
+  useEffect(() => {
+      if(!localStorage.getItem("JetonUtilisateur")){
+        navigate("/");
+      }
+  },[])
 
 useEffect(() => {
-  
-      axios.get(`http://localhost:3000/api/motos/${motoId}`).then((response) => {
+
+      axios.get(`http://localhost:3000/api/motos/${motoId}`, {
+      }).then((response) => {
       if (response.data.moto != null){
         setMotoAModifier(response.data.moto);
         setNumeroConcessionnaire(response.data.moto.numero_concessionnaire);
@@ -74,8 +84,6 @@ useEffect(() => {
     .catch((err) => {
       setMessageErreur("Impossible de récupérer la moto à modifier." + err);
     });;
-
-    console.log("Moto à modifier : ", motoAModifier.dateMiseEnVente);
 
 }, [motoId]);
 
@@ -126,14 +134,11 @@ useEffect(() => {
 useEffect(() => {
   if (dateMiseEnVente)
     setDateMiseEnVente(dateMiseEnVente);
-    console.log("Date mise en vente modifiée : " + dateMiseEnVente);
 }, [dateMiseEnVente]);
 
 
 useEffect(() => {
   setDisponible(disponible);
-
-  // console.log("Disponible modifié : " + disponible);
   // Retourne true ou false correctement
 }, [disponible]);
 
@@ -222,41 +227,49 @@ useEffect(() => {
 
     if(formulaireValide == true){
 
-      console.log(motoId);
-      console.log("numeroConcessionnaire : " + numeroConcessionnaire);
-      console.log("marque : " + marque);
-      console.log("modele : " + modele);
-      console.log("annee : " + annee);
-      console.log("dateMiseEnVente : " + dateMiseEnVente);
-      console.log("disponible : " + disponible);
-      console.log("prix : " + prix);
-      console.log("categories : " + categories);
-      console.log("kilometrage : " + kilometrage);
-      console.log("photo : " + photo);
+      // console.log(motoId);
+      // console.log("numeroConcessionnaire : " + numeroConcessionnaire);
+      // console.log("marque : " + marque);
+      // console.log("modele : " + modele);
+      // console.log("annee : " + annee);
+      // console.log("dateMiseEnVente : " + dateMiseEnVente);
+      // console.log("disponible : " + disponible);
+      // console.log("prix : " + prix);
+      // console.log("categories : " + categories);
+      // console.log("kilometrage : " + kilometrage);
+      // console.log("photo : " + photo);
 
-      axios.put(`http://localhost:3000/api/motos/update`, {
-        moto: {
-        _id: motoId, 
-        numero_concessionnaire: numeroConcessionnaire,
-        marque: marque,
-        modele: modele,
-        annee: annee,
-        dateMiseEnVente: dateMiseEnVente, 
-        disponible: disponible,
-        prix: prix,
-        categories: categories,
-        kilometrage: kilometrage,
-        photo: photo
-      }
-      })
-      .then((response) => {
-        alert("Moto modifiée avec succès !");
-        console.log(response.data);
-      })
-      .catch((error) => {
-        alert("Impossible de modifier la moto : ");
-        console.log(error);
-      });
+      axios.put(
+  `http://localhost:3000/api/motos/update`,
+  {
+    moto: {
+      _id: motoId, 
+      numero_concessionnaire: numeroConcessionnaire,
+      marque: marque,
+      modele: modele,
+      annee: annee,
+      dateMiseEnVente: dateMiseEnVente, 
+      disponible: disponible,
+      prix: prix,
+      categories: categories,
+      kilometrage: kilometrage,
+      photo: photo
+    }
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${jeton}`
+    }
+  }
+)
+.then(() => {
+  alert("Moto modifiée avec succès !");
+  navigate("/");
+})
+.catch(() => {
+  alert("Impossible de modifier la moto !");
+});
+
     }
   }
 

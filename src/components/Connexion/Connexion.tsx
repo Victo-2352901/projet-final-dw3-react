@@ -1,21 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ConnectionContext } from "../../contexts/ConnectionContext";
+import { ConnexionContext } from "../../contexts/ConnectionContext";
 
 
 function Connexion(){
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [erreur, setErreur] = useState('');
-  const navigate = useNavigate();
-  const { connexion, estConnecter } = useContext(ConnectionContext);
+
+  const { connexion, estConnecter } = useContext(ConnexionContext);
 
   async function performLogin() {
     await connexion(email, password)
       .then((reussi) => {
         if (reussi) {
           setErreur('');
+          console.log("estConnecter");
         }
       })
       .catch(() => setErreur('Login incorrect'));
@@ -23,8 +24,10 @@ function Connexion(){
 
   useEffect(() => {
     if (estConnecter) {
+      console.log(estConnecter);
       navigate('/');
     }
+    console.log(estConnecter);
   }, [estConnecter, navigate]);
 
 

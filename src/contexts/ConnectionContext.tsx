@@ -1,36 +1,56 @@
-import axios from "axios";
-import { createContext, useState } from "react";
+/* eslint-disable react-refresh/only-export-components */
 
-export type ConnectionContextType = {
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
+
+export type ConnexionContextType = {
     estConnecter: boolean;
     jeton: string;
     connexion: (email: string, motDePasse: string) => Promise<boolean>;
     deconnexion: () => void;
 };
 
-export const ConnectionContext = createContext<ConnectionContextType>({
+export const ConnexionContext = createContext<ConnexionContextType>({
     estConnecter: false,
     jeton: "",
     connexion: () => new Promise<boolean>(() => false),
     deconnexion: () => {},
 });
 
-export default function ConnectionProvider(props:any){
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function ConnexionProvider({children} : Props){
     const [estConnecter, setEstConnecter] = useState(false);
     const [jeton, setJeton] = useState("");
+
+    useEffect(()=>{
+
+      if(localStorage.getItem("JetonUtilisateur")){
+        setEstConnecter(true)
+        setJeton(localStorage.getItem("JetonUtilisateur")!.toString())
+      }
+    },[]);
 
 
     async function connexion(email: string, motDePasse: string) {
         return axios
-      .post('http://localhost:3001/api/users/generatetoken', {
-        email,
-        motDePasse,
+      .post('http://localhost:3000/api/generatetoken', {
+        userLogin: {
+          email: email,
+          motDePasse: motDePasse,
+      },
       })
       .then((response) => {
-        const { jeton } = response.data;
-        if (jeton) {
+        const { token } = response.data;
+
+        if (token) {
           setEstConnecter(true);
-          setJeton(jeton);
+
+          /// Inspiré de https://stackoverflow.com/questions/28314368/how-to-maintain-state-after-a-page-refresh-in-react-js
+          localStorage.setItem("JetonUtilisateur", token);
+          setJeton(token);
           return true;
         } else {
           setEstConnecter(false);
@@ -43,6 +63,7 @@ export default function ConnectionProvider(props:any){
     function deconnexion() {
         setJeton('');
         setEstConnecter(false);
+        localStorage.removeItem("JetonUtilisateur");
     }
 
     const valeurContext = {
@@ -53,8 +74,8 @@ export default function ConnectionProvider(props:any){
     };
 
     return(
-      <ConnectionContext.Provider value={valeurContext}>
-        {props.children}
-      </ConnectionContext.Provider>
+      <ConnexionContext.Provider value={valeurContext}>
+        {children}
+      </ConnexionContext.Provider>
     );
 }

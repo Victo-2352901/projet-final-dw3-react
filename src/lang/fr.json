@@ -31,7 +31,7 @@
   "ajouterMoto.message.success": "Moto ajoutée avec succès !",
   "ajouterMoto.message.error": "Impossible d'ajouter la moto.",
 
-  "inventaire.titre.principal": "Inventaire des motos",
+  "inventaire.titre": "Inventaire des motos",
 
   "inventaire.filtre.marque": "Marques",
   "inventaire.filtre.aucune": "Aucune préférence",
@@ -43,6 +43,7 @@
   "inventaire.marque.aprilia": "Aprilia",
   "inventaire.marque.triumph": "Triumph",
   "inventaire.marque.kawasaki": "Kawasaki",
+  "inventaire.marque.suzuki": "Suzuki",
 
   "inventaire.liste.aucun_resultat": "Nous ne possédons pas de motos correspondant à vos critères de recherche.",
 
