@@ -2,16 +2,16 @@ import { useContext } from "react";
 import { ConnectionContext } from "../../contexts/ConnectionContext";
 import { FormattedMessage} from "react-intl";
 
-import { IntlContext } from "../../contexts/LangueContext";
+// import { IntlContext } from "../../contexts/LangueContext";
 
 function TopBar() {
 
- const { intl } = useContext(IntlContext);
+//  const { intl } = useContext(IntlContext);
 
     const {estConnecter} = useContext(ConnectionContext)
 
     const ChangerLangue = () => {
-        changerLangue();
+        
     }
 
 

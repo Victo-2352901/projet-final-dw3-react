@@ -2,7 +2,6 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import type { IMoto } from "../../models/imoto.model";
 import TopBar from "../TopBar";
-import { href } from "react-router-dom";
 import { ConnectionContext } from "../../contexts/ConnectionContext";
 
 import { FormattedMessage } from "react-intl";
@@ -29,9 +28,7 @@ function Inventaire() {
     .catch((err) => {
       console.error("ERREUR axios :", err);
     });;
-
-    setFiltreMarque("Aucune");
-
+    // initial load only; filtreMarque default already "Aucune"
   }, []);
 
   useEffect(() => {
@@ -70,7 +67,7 @@ function Inventaire() {
 
   const SupprimerMoto = (idMoto: string) => {
     axios.delete(`http://localhost:3000/api/motos/delete/${idMoto}`)
-      .then((response) => {
+      .then(() => {
         alert("Moto supprimée avec succès !");
       })
       .catch((err) => {

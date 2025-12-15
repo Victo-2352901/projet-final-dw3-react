@@ -25,7 +25,7 @@ function Connexion(){
     if (estConnecter) {
       navigate('/');
     }
-  }, [estConnecter]);
+  }, [estConnecter, navigate]);
 
 
 

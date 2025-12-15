@@ -1,5 +1,5 @@
 import axios from "axios";
-import { use, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { IMoto } from "../../models/imoto.model";
 import TopBar from "../TopBar";
 import { useParams } from "react-router-dom";
@@ -40,9 +40,9 @@ const ModifierMoto = () => {
     const [erreurModele, setErreurModele] = useState("");
     const [erreurAnnee, setErreurAnnee] = useState("");
     const [erreurDateMiseEnVente, setErreurDateMiseEnVente] = useState("");
-    const [erreurDisponible, setErreurDisponible] = useState("");
+    // const [erreurDisponible, setErreurDisponible] = useState("");
     const [erreurPrix, setErreurPrix] = useState("");
-    const [erreurCategories, setErreurCategories] = useState("");
+    // const [erreurCategories, setErreurCategories] = useState("");
     const [erreurKilometrage, setErreurKilometrage] = useState("");
     const [erreurPhoto, setErreurPhoto] = useState("");
 
@@ -531,6 +531,12 @@ useEffect(() => {
           defaultMessage="Annuler"
         />
       </a>
+
+
+      {messageErreur != "" ?
+      <div>{messageErreur}</div> :
+        ""
+    }
     </div>
     </>
   )
